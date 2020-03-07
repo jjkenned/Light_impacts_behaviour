@@ -35,7 +35,7 @@ odbcCloseAll()
 # Convert date within image_time to be correct date from Image_date 
 # this uses lubridate
 date(basedata$Image_time)<-basedata$Image_date
-
+head(basedata$Image_time)
 # identify fields you want to keep
 keep<-c("BASE_ID","Directory","Image","Path","site","Processed","Image_time","Image_date")
 base<-basedata[keep] # keep columns we want
@@ -46,8 +46,8 @@ keep<-c("BASE_ID", "Species", "Panel", "Individual", "Strongest")
 owls<-detections[keep]
 
 # Write Both in csv with label for which machine this was taken from 
-write.csv(final.base,file = "2_pipeline/int_data/thesis_base_Mar7_MACHINE01.csv",row.names = F)
-write.csv(observations,file = "2_pipeline/int_data/thesis_song_counts_Mar7_MACHINE01.csv",row.names = F)
+write.csv(base,file = "2_pipeline/int_data/thesis_base_Mar7_MACHINE01.csv",row.names = F)
+write.csv(owls,file = "2_pipeline/int_data/thesis_song_counts_Mar7_MACHINE01.csv",row.names = F)
 
 
 
